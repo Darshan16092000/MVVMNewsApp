@@ -12,7 +12,7 @@ import com.androiddevs.mvvmnewsapp.models.Article
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
-class NewsAdapter: RecyclerView.Adapter<ArticleViewHolder> (){
+class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder> (){
 
     inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -50,7 +50,7 @@ class NewsAdapter: RecyclerView.Adapter<ArticleViewHolder> (){
         val article = differ.currentList[position]
         holder.itemView.apply {
             Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-            tvSource.text = article.source.name
+            tvSource.text = article.source?.name
             tvTitle.text = article.title
             tvDescription.text = article.description
             tvPublishedAt.text = article.publishedAt
